@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://ds3mlpyd8x7l2"]
+
+[ext_resource type="Script" uid="uid://chg5dker3cepy" path="res://player.gd" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://bpkrtdamxcaio" path="res://enemy_basic.gd" id="2_fj7yv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqk2v"]
+radius = 223.99
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_036b0"]
+vertices = PackedVector2Array(1358.7734, 90.53125, 1360.7109, 1122.7969, 849.72656, 359.72656, 849.72656, 270.27344, 1350.8125, -128.65625, -269.70313, 1124.7266, 216.27344, 359.72656, -266.82813, -122.86719, 216.27344, 270.27344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(2, 1, 5, 6), PackedInt32Array(6, 5, 7, 8), PackedInt32Array(8, 7, 4, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1388, 90, 1390, 1152, -299, 1154, -296, -152, 1379, -158)])
+agent_radius = 29.23
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
+size = Vector2(575, 31)
+
+[node name="World" type="Node2D" unique_id=947589902]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=865330410]
+position = Vector2(600, 500)
+script = ExtResource("1_f3sb7")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=1625001274]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1560994774]
+shape = SubResource("RectangleShape2D_fj7yv")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1886346579]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.39
+drag_top_margin = 0.28
+drag_right_margin = 0.39
+drag_bottom_margin = 0.28
+
+[node name="EnemyBasic" type="CharacterBody2D" parent="." unique_id=1365897100]
+position = Vector2(457, 223)
+script = ExtResource("2_fj7yv")
+
+[node name="ColorRect" type="ColorRect" parent="EnemyBasic" unique_id=1371001864]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.56078434, 0.07058824, 0.10980392, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBasic" unique_id=923517378]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="AggroRange" type="Area2D" parent="EnemyBasic" unique_id=793382393]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBasic/AggroRange" unique_id=1556855408]
+shape = SubResource("CircleShape2D_aqk2v")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="EnemyBasic" unique_id=390585811]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=323802804]
+position = Vector2(64, 9)
+navigation_polygon = SubResource("NavigationPolygon_036b0")
+
+[node name="StaticObstacles" type="Node2D" parent="NavigationRegion2D" unique_id=1835778261]
+position = Vector2(-64, -9)
+
+[node name="Wall1" type="StaticBody2D" parent="NavigationRegion2D/StaticObstacles" unique_id=105890444]
+position = Vector2(597, 324)
+
+[node name="ColorRect" type="ColorRect" parent="NavigationRegion2D/StaticObstacles/Wall1" unique_id=1567812820]
+offset_left = -287.0
+offset_top = -15.0
+offset_right = 287.0
+offset_bottom = 15.0
+color = Color(0.6392157, 0.7647059, 0.7607843, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticObstacles/Wall1" unique_id=247450999]
+shape = SubResource("RectangleShape2D_f3sb7")
