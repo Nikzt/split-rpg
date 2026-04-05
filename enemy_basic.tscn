@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dlsq1veuoemrk"]
+
+[ext_resource type="Script" uid="uid://bpkrtdamxcaio" path="res://enemy_basic.gd" id="1_g2x43"]
+[ext_resource type="Script" uid="uid://l058es2j62c1" path="res://health_label.gd" id="2_2eiu5"]
+[ext_resource type="PackedScene" uid="uid://wf7yiug2kt2m" path="res://targeting_reticle.tscn" id="3_2eiu5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqk2v"]
+radius = 223.99
+
+[node name="EnemyBasic" type="CharacterBody2D" unique_id=158601131]
+script = ExtResource("1_g2x43")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1144570142]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.56078434, 0.07058824, 0.10980392, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1350471519]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="AggroRange" type="Area2D" parent="." unique_id=1065053967]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange" unique_id=1754229864]
+shape = SubResource("CircleShape2D_aqk2v")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1183403948]
+
+[node name="HealthLabel" type="Label" parent="." unique_id=635927988]
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = -22.0
+script = ExtResource("2_2eiu5")
+
+[node name="TargetingReticle" parent="." unique_id=1138368473 instance=ExtResource("3_2eiu5")]

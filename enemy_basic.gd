@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed = 90.0
 var target: Node2D = null
 var stop_distance = 70.0
+var health = 30
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var aggro_range: Area2D = $AggroRange

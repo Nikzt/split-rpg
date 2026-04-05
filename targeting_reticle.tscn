@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://wf7yiug2kt2m"]
+
+[ext_resource type="Script" uid="uid://dk47g75nqhe62" path="res://targeting_reticle.gd" id="1_6fq5k"]
+
+[node name="TargetingReticle" type="Node2D" unique_id=1138368473]
+script = ExtResource("1_6fq5k")
