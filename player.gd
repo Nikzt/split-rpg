@@ -74,7 +74,7 @@ func cycle_target():
 	var next_index = (current_index + 1) % potential_targets.size()
 	target = potential_targets[next_index]
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, damage_type: String = "auto_attack") -> void:
 	health -= amount
 
 func handle_is_dead() -> void:

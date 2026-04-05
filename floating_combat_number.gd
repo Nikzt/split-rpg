@@ -1,6 +1,7 @@
 extends RichTextLabel
 
 var damage_amount: int = 0
+var damage_type: String = "auto_attack"
 
 func _ready() -> void:
 	modulate.a = 0.0
@@ -10,7 +11,12 @@ func _ready() -> void:
 	scroll_active = false
 	autowrap_mode = TextServer.AUTOWRAP_OFF
 
-	text = "[center]" + str(damage_amount) + "[/center]"
+	var color_tag = ""
+	var color_end = ""
+	if damage_type == "ability":
+		color_tag = "[color=yellow]"
+		color_end = "[/color]"
+	text = "[center]" + color_tag + str(damage_amount) + color_end + "[/center]"
 
 	await get_tree().process_frame
 	_start_animation()

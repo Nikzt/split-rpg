@@ -10,6 +10,6 @@ func _ready() -> void:
 
 func use(player: Node2D) -> void:
 	var damage = player.attack_power * 2
-	player.target.take_damage(damage)
+	player.target.take_damage(damage, "ability")
 	player.target.handle_is_dead()
 	start_cooldown()

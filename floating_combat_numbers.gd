@@ -25,8 +25,9 @@ func _connect_enemy(enemy: Node) -> void:
 	if enemy.has_signal("damage_taken") and not enemy.damage_taken.is_connected(_on_damage_taken):
 		enemy.damage_taken.connect(_on_damage_taken)
 
-func _on_damage_taken(amount: int, pos: Vector2) -> void:
+func _on_damage_taken(amount: int, pos: Vector2, damage_type: String = "auto_attack") -> void:
 	var number = _number_scene.instantiate()
 	number.damage_amount = amount
+	number.damage_type = damage_type
 	number.global_position = pos
 	add_child(number)

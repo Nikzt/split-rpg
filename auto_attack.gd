@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	var distance = parent.global_position.distance_to(parent.target.global_position)
 	if distance <= parent.auto_attack_range and auto_attack_ready:
 		auto_attack_ready = false
-		parent.target.take_damage(parent.attack_power)
+		parent.target.take_damage(parent.attack_power, "auto_attack")
 		parent.target.handle_is_dead()
 		get_tree().create_timer(parent.auto_attack_time_seconds).timeout.connect(_on_cooldown_finished)
 

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal damage_taken(amount: int, pos: Vector2)
+signal damage_taken(amount: int, pos: Vector2, damage_type: String)
 
 var floating_number_offset_y: float = -40.0
 
@@ -55,9 +55,9 @@ func _get_separation_force() -> Vector2:
 func get_floating_number_position() -> Vector2:
 	return global_position + Vector2(0, floating_number_offset_y)
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, damage_type: String = "auto_attack") -> void:
 	health -= amount
-	damage_taken.emit(amount, get_floating_number_position())
+	damage_taken.emit(amount, get_floating_number_position(), damage_type)
 
 func handle_is_dead() -> void:
 	if health <= 0:

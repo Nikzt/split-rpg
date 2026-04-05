@@ -14,6 +14,6 @@ func use(player: Node2D) -> void:
 	for enemy in enemies:
 		var distance = player.global_position.distance_to(enemy.global_position)
 		if distance <= ability_range:
-			enemy.take_damage(damage)
+			enemy.take_damage(damage, "ability")
 			enemy.handle_is_dead()
 	start_cooldown()
