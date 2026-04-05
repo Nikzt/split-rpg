@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dlunm1iuiwv8y"]
+
+[ext_resource type="Script" uid="uid://chg5dker3cepy" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://l058es2j62c1" path="res://health_label.gd" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://c6288o8q4asi2" path="res://auto_attack.tscn" id="3_auto"]
+[ext_resource type="PackedScene" path="res://player_abilities.tscn" id="4_pa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
+size = Vector2(40, 40)
+
+[node name="Player" type="CharacterBody2D" unique_id=1531967010 groups=["player"]]
+script = ExtResource("1_onrkg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1728830835]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=425416788]
+shape = SubResource("RectangleShape2D_fj7yv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1025775080]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.39
+drag_top_margin = 0.28
+drag_right_margin = 0.39
+drag_bottom_margin = 0.28
+
+[node name="HealthLabel" type="Label" parent="." unique_id=478813286]
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 20.0
+offset_bottom = -22.0
+script = ExtResource("2_i3pqv")
+
+[node name="AutoAttack" parent="." unique_id=1490062474 instance=ExtResource("3_auto")]
+
+[node name="PlayerAbilities" parent="." instance=ExtResource("4_pa")]

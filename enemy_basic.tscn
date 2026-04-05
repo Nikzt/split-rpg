@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpkrtdamxcaio" path="res://enemy_basic.gd" id="1_g2x43"]
 [ext_resource type="Script" uid="uid://l058es2j62c1" path="res://health_label.gd" id="2_2eiu5"]
 [ext_resource type="PackedScene" uid="uid://wf7yiug2kt2m" path="res://targeting_reticle.tscn" id="3_2eiu5"]
+[ext_resource type="PackedScene" uid="uid://c6288o8q4asi2" path="res://auto_attack.tscn" id="4_auto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
 
@@ -38,3 +39,5 @@ offset_bottom = -22.0
 script = ExtResource("2_2eiu5")
 
 [node name="TargetingReticle" parent="." unique_id=1138368473 instance=ExtResource("3_2eiu5")]
+
+[node name="AutoAttack" parent="." instance=ExtResource("4_auto")]

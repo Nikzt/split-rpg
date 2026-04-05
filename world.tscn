@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://ds3mlpyd8x7l2"]
 
-[ext_resource type="Script" uid="uid://chg5dker3cepy" path="res://player.gd" id="1_f3sb7"]
-[ext_resource type="Script" uid="uid://l058es2j62c1" path="res://health_label.gd" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dlunm1iuiwv8y" path="res://player.tscn" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://dlsq1veuoemrk" path="res://enemy_basic.tscn" id="3_tlwt5"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj7yv"]
-size = Vector2(40, 40)
+[ext_resource type="PackedScene" uid="uid://b8sw2qkxykd05" path="res://floating_combat_numbers.tscn" id="4_fcns"]
+[ext_resource type="PackedScene" path="res://ui.tscn" id="5_ui"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_036b0"]
 vertices = PackedVector2Array(1358.7734, 90.53125, 1360.7109, 1122.7969, 849.72656, 359.72656, 849.72656, 270.27344, 1350.8125, -128.65625, -269.70313, 1124.7266, 216.27344, 359.72656, -266.82813, -122.86719, 216.27344, 270.27344)
@@ -18,42 +16,18 @@ size = Vector2(575, 31)
 
 [node name="World" type="Node2D" unique_id=947589902]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=865330410 groups=["player"]]
+[node name="Player" parent="." unique_id=1531967010 instance=ExtResource("1_fj7yv")]
 position = Vector2(600, 500)
-script = ExtResource("1_f3sb7")
-
-[node name="ColorRect" type="ColorRect" parent="Player" unique_id=1625001274]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1560994774]
-shape = SubResource("RectangleShape2D_fj7yv")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1886346579]
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.39
-drag_top_margin = 0.28
-drag_right_margin = 0.39
-drag_bottom_margin = 0.28
-
-[node name="HealthLabel" type="Label" parent="Player" unique_id=985423330]
-offset_left = -20.0
-offset_top = -45.0
-offset_right = 20.0
-offset_bottom = -22.0
-script = ExtResource("2_tlwt5")
 
 [node name="EnemyBasic2" parent="." unique_id=158601131 groups=["enemies"] instance=ExtResource("3_tlwt5")]
 position = Vector2(77, 266)
 
 [node name="EnemyBasic" parent="." unique_id=1071099759 groups=["enemies"] instance=ExtResource("3_tlwt5")]
 position = Vector2(457, 223)
+
+[node name="FloatingCombatNumbers" parent="." instance=ExtResource("4_fcns")]
+
+[node name="UI" parent="." instance=ExtResource("5_ui")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=323802804]
 position = Vector2(64, 9)

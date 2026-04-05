@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c6288o8q4asi2"]
+
+[ext_resource type="Script" uid="uid://djvinjwjlef0e" path="res://auto_attack.gd" id="1_olggx"]
+
+[node name="AutoAttack" type="Node" unique_id=1562094484]
+script = ExtResource("1_olggx")

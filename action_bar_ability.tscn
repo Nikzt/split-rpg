@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://o0t41tprt7dy"]
+
+[ext_resource type="Script" uid="uid://tsb42tsog4ot" path="res://action_bar_ability.gd" id="1_aba"]
+[ext_resource type="Texture2D" uid="uid://6rhcyfhh0ejp" path="res://assets/icons/ability_icon_border.png" id="2_border"]
+
+[node name="ActionBarAbility" type="Control" unique_id=1783540850]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_aba")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1695818259]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Border" type="TextureRect" parent="." unique_id=97922260]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_border")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1161269996]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1

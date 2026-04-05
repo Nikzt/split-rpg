@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8sw2qkxykd05"]
+
+[ext_resource type="Script" path="res://floating_combat_numbers.gd" id="1_fcns"]
+
+[node name="FloatingCombatNumbers" type="Node2D" unique_id=710040476]
+script = ExtResource("1_fcns")
